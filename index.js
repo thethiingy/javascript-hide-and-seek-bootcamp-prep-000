@@ -8,21 +8,18 @@ function nestedTarget()
   return document.getElementById("nested").querySelector(".target");
 }
 
+//Single use case
 function deepestChild()
 {
-  var children = node.querySelectorAll('#grand-node > div');
-  var nestedLevel = 0;
-  var result;
+  var node = document.getElementById('grand-node')
+  var nextNode = node.children[0]
 
-  for (var i = 0; i < children.length; i++)
-  {
-    var child = children[1];
-    var grandChildren = node.querySelectorAll('div')
-    
+  while (nextNode) {
+    node = nextNode
+    nextNode = node.children[0]
   }
 
-
-  return child[child.length-1];
+return node
 }
 
 function increaseRankBy(n)
